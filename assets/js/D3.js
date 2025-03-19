@@ -138,6 +138,7 @@ let eyeColor = {
   yellow: [],
   brown: [],
   red: [],
+  "blue-gray": [],
 };
 /* ESERCIZIO 5
   Utilizza uno switch statement per inserire uno ad uno gli oggetti dei personaggi di "starWarsCharacters" negli array relativi al colore degli occhi precedentemente creati.
@@ -156,11 +157,18 @@ switch (starWarsCharacters.eye_color) {
   case "red":
     eyeColor.red.push(starWarsCharacters);
     break;
+  case "blue-gray":
+    eyeColor["blue-gray"].push(starWarsCharacters);
+    break;
 }
 console.log(eyeColor);
+
 /* ESERCIZIO 6
   Usa un while loop per calcolare la massa totale dell'equipaggio. Salvala in una variabile chiamata "crewMass".
+
+
 */
+let crewMass = 0;
 
 /* ESERCIZIO 7
   Crea uno if/else statement per rivelare la tipologia di carico, utilizzando la massa totale, di un'ipotetica astronave contenente i personaggi dell'array "starWarsCharacters".

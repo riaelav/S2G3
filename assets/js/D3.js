@@ -115,6 +115,7 @@ for (let i = 0; i < starWarsCharacters.length; i++) {
   const singleCharacter = starWarsCharacters[i];
   charactersNames.push(singleCharacter.name);
 }
+
 console.log(charactersNames);
 
 /* ESERCIZIO 3
@@ -123,8 +124,10 @@ console.log(charactersNames);
 femaleCharacters = [];
 for (let i = 0; i < starWarsCharacters.length; i++) {
   const singleCharacter = starWarsCharacters[i];
-  if (singleCharacter.gender !== "female") continue;
-  femaleCharacters.push(singleCharacter.gender);
+
+  if (singleCharacter.gender === "female") {
+    femaleCharacters.push(singleCharacter);
+  }
 }
 console.log(femaleCharacters);
 
@@ -144,23 +147,28 @@ let eyeColor = {
   Utilizza uno switch statement per inserire uno ad uno gli oggetti dei personaggi di "starWarsCharacters" negli array relativi al colore degli occhi precedentemente creati.
   Ogni personaggio dovrà finire nell'array corrispondente al suo colore degli occhi (al valore della sua proprietà "eye_color").
 */
-switch (starWarsCharacters.eye_color) {
-  case "blue":
-    eyeColor.blue.push(starWarsCharacters);
-    break;
-  case "yellow":
-    eyeColor.yellow.push(starWarsCharacters);
-    break;
-  case "brown":
-    eyeColor.brown.push(starWarsCharacters);
-    break;
-  case "red":
-    eyeColor.red.push(starWarsCharacters);
-    break;
-  case "blue-gray":
-    eyeColor["blue-gray"].push(starWarsCharacters);
-    break;
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  const character = starWarsCharacters[i];
+
+  switch (character.eye_color) {
+    case "blue":
+      eyeColor.blue.push(character);
+      break;
+    case "yellow":
+      eyeColor.yellow.push(character);
+      break;
+    case "brown":
+      eyeColor.brown.push(character);
+      break;
+    case "red":
+      eyeColor.red.push(character);
+      break;
+    case "blue-gray":
+      eyeColor["blue-gray"].push(character);
+      break;
+  }
 }
+
 console.log(eyeColor);
 
 /* ESERCIZIO 6
@@ -169,9 +177,17 @@ console.log(eyeColor);
 
 */
 let crewMass = 0;
+let i = 0;
+
+while (i < starWarsCharacters.length) {
+  crewMass += starWarsCharacters[i].mass;
+  i++;
+}
+console.log(crewMass);
 
 /* ESERCIZIO 7
-  Crea uno if/else statement per rivelare la tipologia di carico, utilizzando la massa totale, di un'ipotetica astronave contenente i personaggi dell'array "starWarsCharacters".
+  Crea uno if/else statement per rivelare la tipologia di carico, utilizzando la massa totale, di un'ipotetica astronave contenente i personaggi
+   dell'array "starWarsCharacters".
 
   Se la massa è inferiore a 500 stampa in console: "Ship is under loaded"
   Se la massa è superiore a 500 e inferiore a 700 stampa in console: "Ship is half loaded"
@@ -181,9 +197,21 @@ let crewMass = 0;
 
   Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se riesci ad ottenere un messaggio diverso.
 */
+if (crewMass < 500) {
+  console.log("Ship is under loaded");
+} else if (crewMass > 500 && crewMass < 700) {
+  console.log("Ship is half loaded");
+} else if (crewMass > 700 && crewMass < 900) {
+  console.log("Warning: Load is over 700");
+} else if (crewMass > 900 && crewMass < 1000) {
+  console.log("Critical Load: Over 900");
+} else if (crewMass > 1000) {
+  console.log("DANGER! OVERLOAD ALERT: escape from ship now!");
+}
 
 /* ESERCIZIO 8
-  Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi effettuare la riassegnazione del valore corrispondente o creare un nuovo array)
+  Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" 
+  (Tip: puoi effettuare la riassegnazione del valore corrispondente o creare un nuovo array)
 */
 
 /* --EXTRA-- ESERCIZIO 9
